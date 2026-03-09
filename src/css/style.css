@@ -126,8 +126,9 @@ body.scrolled .scroll-hint {
     z-index: 1000;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 12px;
 
     padding: 20px;
     background: #111;
@@ -187,7 +188,7 @@ body.scrolled .scroll-hint {
 /* SEZIONI */
 
 .section {
-    padding: 10px 10px;
+    padding: 10px 24px;
     scroll-margin-top: 50px;
 }
 
@@ -213,6 +214,9 @@ body.scrolled .scroll-hint {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    max-width: 1600px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .gallery-row {

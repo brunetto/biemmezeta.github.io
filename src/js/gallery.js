@@ -23,7 +23,7 @@ function justifiedLayout() {
         row.className = "gallery-row";
 
         let rowWidth = 0;
-        const targetHeight = 260;
+        const targetHeight = 250;
         const maxWidth = gallery.clientWidth;
         if (!maxWidth) return;
 
@@ -55,8 +55,10 @@ function justifiedLayout() {
             // ridimensiono tutte le immagini della riga per farle stare esattamente, 
             // aggiungo la riga al gallery e ne inizio una nuova
             if (rowWidth + width > maxWidth && row.children.length) {
-
-                const scale = maxWidth / rowWidth;
+                const gap = 8;
+                const gaps = gap * (row.children.length - 1);
+                const scale = (maxWidth - gaps) / rowWidth;
+                // const scale = maxWidth / rowWidth;
 
                 Array.from(row.children).forEach(child => {
                     const basis = parseFloat(child.style.flex.split(" ")[2]);
