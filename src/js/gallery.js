@@ -11,7 +11,6 @@ function justifiedLayout() {
     const galleries = document.querySelectorAll(".gallery");
 
     galleries.forEach(gallery => {
-        console.log("gallery width", gallery.clientWidth);
         const items = Array.from(gallery.querySelectorAll(".gallery-item"));
 
         // reset layout
@@ -26,7 +25,10 @@ function justifiedLayout() {
         let rowWidth = 0;
         const targetHeight = 260;
         const maxWidth = gallery.clientWidth;
+        if (!maxWidth) return;
 
+        // per ogni immagine calcolo la larghezza mantenendo l'altezza target, 
+        // e la aggiungo alla riga finché non supero la larghezza massima
         items.forEach(item => {
 
             // calcolo la larghezza dell'immagine mantenendo l'altezza target
@@ -37,26 +39,62 @@ function justifiedLayout() {
 
             const width = targetHeight * ratio;
 
-            item.style.flex = `0 0 ${width}px`;
+            // item.style.flex = `0 0 ${width}px`;
 
-            row.appendChild(item);
-            rowWidth += width;
+            // row.appendChild(item);
+            // rowWidth += width;
 
-            if (rowWidth > maxWidth) {
+            // if (rowWidth > maxWidth) {
+            //     gallery.appendChild(row);
+            //     row = document.createElement("div");
+            //     row.className = "gallery-row";
+            //     rowWidth = 0;
+            // }
+
+            // se aggiungendo l'immagine supero la larghezza massima,
+            // ridimensiono tutte le immagini della riga per farle stare esattamente, 
+            // aggiungo la riga al gallery e ne inizio una nuova
+            if (rowWidth + width > maxWidth && row.children.length) {
+
+                const scale = maxWidth / rowWidth;
+
+                Array.from(row.children).forEach(child => {
+                    const basis = parseFloat(child.style.flex.split(" ")[2]);
+                    child.style.flex = `0 0 ${basis * scale}px`;
+                });
+
                 gallery.appendChild(row);
                 row = document.createElement("div");
                 row.className = "gallery-row";
                 rowWidth = 0;
             }
 
+            item.style.flex = `0 0 ${width}px`;
+
+            row.appendChild(item);
+            rowWidth += width;
+
         });
 
+        // if (row.children.length) {
+        //     gallery.appendChild(row);
+        // }
+
+        // aggiungo l'ultima riga anche se è più stretta, 
+        // ridimensionandola per farla stare esattamente
         if (row.children.length) {
+
+            const scale = maxWidth / rowWidth;
+
+            Array.from(row.children).forEach(child => {
+                const basis = parseFloat(child.style.flex.split(" ")[2]);
+                child.style.flex = `0 0 ${basis * scale}px`;
+            });
+
             gallery.appendChild(row);
         }
 
     });
-
 }
 
 // window.addEventListener("DOMContentLoaded", () => {
@@ -79,7 +117,8 @@ function justifiedLayout() {
 // });
 
 // window.addEventListener("DOMContentLoaded", justifiedLayout);
-// eseguo il layout dopo un breve timeout per essere sicuro che tutte le immagini siano caricate
+// eseguo il layout dopo un breve timeout per essere sicuro 
+// che tutte le immagini siano caricate
 requestAnimationFrame(justifiedLayout);
 
 // window.addEventListener("resize", () => {
