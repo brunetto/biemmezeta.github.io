@@ -29,13 +29,19 @@ module.exports = function (eleventyConfig) {
         const imgHTML = Image.generateHTML(metadata, imageAttributes);
 
         return `
-<a href="${largest.url}"
-   class="gallery-item"
-   data-pswp-width="${largest.width}"
-   data-pswp-height="${largest.height}">
-  ${imgHTML}
-</a>`;
+        <a href="${largest.url}"
+        class="gallery-item"
+        data-pswp-width="${largest.width}"
+        data-pswp-height="${largest.height}">
+        ${imgHTML}
+        </a>`;
     }
+
+    eleventyConfig.addPlugin(require("@quasibit/eleventy-plugin-sitemap"), {
+        sitemap: {
+            hostname: "https://biemmezeta.com"
+        }
+    });
 
     eleventyConfig.addPassthroughCopy("photos/hero");
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
@@ -44,6 +50,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({
         "node_modules/photoswipe/dist": "js/photoswipe"
     });
+    eleventyConfig.addPassthroughCopy("robots.txt");
+    eleventyConfig.addPassthroughCopy("favicon.ico");
 
     // leggere automaticamente le cartelle foto
     const fs = require("fs");
@@ -69,26 +77,31 @@ module.exports = function (eleventyConfig) {
     });
 
     eleventyConfig.addGlobalData("galleries", () => {
-        const base = "./photos";
-        const categories = fs.readdirSync(base)
-            .filter(name => name !== "hero");
 
-        return categories.map(category => {
-            const folder = path.join(base, category);
-            const files = fs.readdirSync(folder)
-                .filter(file =>
-                    file.endsWith(".jpg") ||
-                    file.endsWith(".jpeg") ||
-                    file.endsWith(".png")
-                );
+        const base = path.join(process.cwd(), "photos");
 
-            return {
-                name: category,
-                title: formatTitle(category),
-                photos: files.map(file => `${folder}/${file}`)
-            };
+        return fs.readdirSync(base)
+            .filter(name =>
+                name !== "hero" &&
+                fs.statSync(path.join(base, name)).isDirectory()
+            )
+            .map(category => {
 
-        });
+                const folder = path.join(base, category);
+
+                const photos = fs.readdirSync(folder)
+                    .filter(file =>
+                        /\.(jpg|jpeg|png|webp)$/i.test(file)
+                    )
+                    .map(file => `photos/${category}/${file}`);
+
+                return {
+                    name: category,
+                    title: formatTitle(category),
+                    photos
+                };
+
+            });
 
     });
 
