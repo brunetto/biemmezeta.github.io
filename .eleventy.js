@@ -5,6 +5,7 @@ const Image = require("@11ty/eleventy-img");
 
 function formatTitle(slug) {
     return slug
+        .replace(/^\d+-/, "")   // rimuove il numero iniziale
         .replace(/-/g, " ")
         .replace(/\b\w/g, l => l.toUpperCase());
 }

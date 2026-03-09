@@ -14,6 +14,10 @@ title: biemmezeta
 
 {% endfor %}
 
+<a href="#contact" class="nav-link">
+Contacts
+</a>
+
 </nav>
 
 {% for gallery in galleries %}
@@ -35,3 +39,47 @@ title: biemmezeta
 </section>
 
 {% endfor %}
+
+<section id="contact" class="contact">
+
+<h2>Contacts</h2>
+
+<p class="contact-text">
+Based in Venice. Available everywhere.<br>
+Weddings, portraits, events and documentary work.
+</p>
+
+<p class="contact-links">
+<a href="mailto:info@biemmezeta.com">Mail</a>, 
+<a href="https://wa.me/393474958152">WhatsApp</a>, 
+<a href="https://instagram.com/biemmezeta" target="_blank">Instagram</a>
+</p>
+
+
+
+<div class="contact-form">
+
+<form action="https://formspree.io/f/mnjgjgea" method="POST" autocomplete="off">
+<input type="text" name="_gotcha" style="display:none">
+
+<div class="form-field">
+<label>Name</label>
+<input type="text" name="name" required autocomplete="name">
+</div>
+
+<div class="form-field">
+<label>Email</label>
+<input type="email" name="email" required autocomplete="email">
+</div>
+
+<div class="form-field">
+<label>Message</label>
+<textarea name="message" rows="4" required autocomplete="off"></textarea>
+</div>
+
+<button type="submit">Send message</button>
+
+</form>
+
+</div>
+</section>

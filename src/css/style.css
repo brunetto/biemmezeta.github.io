@@ -255,3 +255,127 @@ body.scrolled .scroll-hint {
 .gallery-item:hover img {
     transform: scale(1.03);
 }
+
+/* CONTACT */
+
+#contact {
+    scroll-margin-top: 80px;
+}
+
+.contact {
+    max-width: 720px;
+    margin: 160px auto;
+    padding: 0 20px;
+
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.contact-text {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-links a {
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+a:not(.gallery-item):hover {
+    border-bottom: 1px solid currentColor;
+}
+
+a:visited {
+    color: inherit;
+}
+
+/* CONTACT FORM */
+.contact-form {
+    max-width: 600px;
+    margin: 60px auto 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.form-field label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    opacity: 0.6;
+}
+
+.form-field input,
+.form-field textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 6px 0;
+    font-size: 1rem;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 1rem;
+    background: transparent;
+    color: #fff;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #aaa;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-submit {
+    margin-top: 20px;
+    border: 1px solid currentColor;
+    background: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.form-submit:hover {
+    opacity: 0.7;
+}
+
+.contact button {
+
+    border: 1px solid currentColor;
+    background: transparent;
+    color: inherit;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    opacity: 0.7;
+}
