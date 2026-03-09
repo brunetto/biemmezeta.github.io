@@ -1,0 +1,29 @@
+{
+    "name": "biemmezeta.github.io",
+    "version": "1.0.0",
+    "description": "",
+    "main": ".eleventy.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "eleventy --serve",
+        "build": "eleventy"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/brunetto/biemmezeta.github.io.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/brunetto/biemmezeta.github.io/issues"
+    },
+    "homepage": "https://github.com/brunetto/biemmezeta.github.io#readme",
+    "dependencies": {
+        "@11ty/eleventy": "^3.1.2",
+        "@11ty/eleventy-img": "^6.0.4",
+        "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
+        "photoswipe": "^5.4.4"
+    }
+}
