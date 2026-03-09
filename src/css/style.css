@@ -1,0 +1,253 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* nascondo i titoli delle sezioni lungo il wall */
+.section-title {
+    display: none;
+    /* margin-bottom: 30px; */
+}
+
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: system-ui;
+}
+
+main {
+    background: #111;
+    position: relative;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* titolo un pelo più in basso*/
+    /* padding-bottom: 12vh; */
+
+    /* font-size: 4rem; */
+    color: white;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    /* background: rgba(0, 0, 0, 0.35); */
+    background: linear-gradient(rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.65));
+
+    z-index: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 160px;
+
+    background: linear-gradient(transparent,
+            #111);
+    pointer-events: none;
+}
+
+.hero h1 {
+    position: relative;
+    /* posiziono il titolo al centro dello schermo, ma un po' più in basso per lasciare spazio alla foto */
+    /* position: absolute;
+    bottom: 12vh;
+    left: 50%;
+    transform: translateX(-50%); */
+
+
+    z-index: 2;
+
+    max-width: 10ch;
+    text-align: center;
+    /* regola la dimensione del font a seconda dello schermo ma senza esagerare */
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 6vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+    animation: scrollBounce 1.8s infinite;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+
+    z-index: 3;
+    cursor: pointer;
+}
+
+body.scrolled .scroll-hint {
+    opacity: 0;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
+    }
+}
+
+/* MENU CATEGORIE */
+.categories {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    padding: 20px;
+    background: #111;
+    /* background: linear-gradient(rgba(17, 17, 17, 0.8),
+            rgba(17, 17, 17, 1)); */
+    /* border-bottom: 1px solid #222; */
+
+    transition: all 0.25s ease;
+}
+
+.categories .home {
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.categories.scrolled {
+    padding: 12px 20px;
+    gap: 24px;
+    background: rgba(17, 17, 17, 0.95);
+}
+
+/* .categories a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.categories a:hover {
+    color: white;
+}
+
+.categories a.active {
+    color: white;
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+} */
+.categories a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+
+    font-size: 14px;
+    letter-spacing: 0.08em;
+
+    transition: color 0.2s ease;
+}
+
+.categories a:hover {
+    color: white;
+}
+
+.categories a.active {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+/* SEZIONI */
+
+.section {
+    padding: 10px 10px;
+    scroll-margin-top: 50px;
+}
+
+/* su schermi piccoli, riduco un po' il padding delle sezioni */
+@media (max-width: 700px) {
+
+    .section {
+        padding: 64px 20px 32px;
+    }
+
+}
+
+/* GALLERY */
+
+/* .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+} */
+
+/* laypout justified della griglia */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.gallery-row {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.gallery-row img {
+    height: 260px;
+    width: auto;
+    display: block;
+}
+
+.gallery a {
+    display: block;
+}
+
+/* IMMAGINI */
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+
+    transition: transform .25s ease,
+        opacity .25s ease;
+}
+
+/* fa capire all'utente che può zoommare */
+.gallery-item {
+    display: block;
+    cursor: zoom-in;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}

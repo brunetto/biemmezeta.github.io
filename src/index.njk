@@ -1,0 +1,37 @@
+---
+layout: layout.njk
+title: biemmezeta
+---
+
+<nav class="categories">
+
+<a href="#top" class="home nav-link">biemmezeta</a>
+{% for gallery in galleries %}
+
+<a href="#{{ gallery.name }}" class="nav-link">
+  {{ gallery.title }}
+</a>
+
+{% endfor %}
+
+</nav>
+
+{% for gallery in galleries %}
+
+<section id="{{ gallery.name }}" class="section">
+
+<h2 class="section-title">
+  {{ gallery.title }}
+</h2>
+
+<div class="gallery">
+
+{% for photo in gallery.photos %}
+  {% image photo, gallery.title %}
+{% endfor %}
+
+</div>
+
+</section>
+
+{% endfor %}
