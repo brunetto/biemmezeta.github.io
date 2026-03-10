@@ -1,9 +1,9 @@
-import PhotoSwipeLightbox from '/js/photoswipe/photoswipe-lightbox.esm.js';
+import PhotoSwipeLightbox from './photoswipe/photoswipe-lightbox.esm.js';
 
 const lightbox = new PhotoSwipeLightbox({
     gallery: 'body',
     children: '.gallery-item',
-    pswpModule: () => import('/js/photoswipe/photoswipe.esm.js')
+    pswpModule: () => import('./photoswipe/photoswipe.esm.js')
 });
 
 function justifiedLayout() {
