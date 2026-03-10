@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,21 +20,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Cache Eleventy Image
-        uses: actions/cache@v4
-        with:
-          path: |
-            .cache
-            _site/img
-          key: eleventy-cache-${{ hashFiles('photos/**/*') }}
-          restore-keys: |
-            eleventy-cache-
-
       - run: npm install
 
       - run: npx eleventy
 
-      - uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
