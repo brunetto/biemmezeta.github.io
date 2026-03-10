@@ -48,50 +48,27 @@ window.addEventListener("DOMContentLoaded", () => {
     aggiungo una classe "scrolled" alla navbar quando l'utente scrolla oltre i 100px, 
     e la rimuovo quando torna in cima */
     const nav = document.querySelector(".categories");
-    window.addEventListener("scroll", () => {
+    if (nav) {
+        window.addEventListener("scroll", () => {
 
-        if (window.scrollY > 100) {
-            nav.classList.add("scrolled");
-        } else {
-            nav.classList.remove("scrolled");
-        }
-    });
-
+            if (window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        });
+    }
 
     /* SEZIONE ATTIVA NELLA NAVBAR:
-    uso Intersection Observer per capire quale sezione 
-    è attiva e evidenziare il link corrispondente nella navbar */
+    evidenzio il link della navbar 
+    corrispondente alla sezione attualmente visibile,
+    basandomi sulla distanza tra la parte superiore 
+    della sezione e la posizione dello scroll */
 
-    // const sections = document.querySelectorAll("section");
-    // const navLinks = document.querySelectorAll(".nav-link");
-
-    // const observer = new IntersectionObserver((entries) => {
-
-    //     entries.forEach(entry => {
-
-    //         if (!entry.isIntersecting) return;
-
-    //         const id = entry.target.getAttribute("id");
-
-    //         navLinks.forEach(link => {
-    //             link.classList.remove("active");
-
-    //             if (link.getAttribute("href") === "#" + id) {
-    //                 link.classList.add("active");
-    //             }
-    //         });
-
-    //     });
-
-    // }, {
-    //     // rootMargin: "-40% 0px -40% 0px"
-    //     rootMargin: "-80% 0px -70% 0px"
-    // });
-
-    // sections.forEach(section => observer.observe(section));
-
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll(".section");
     const navLinks = document.querySelectorAll(".nav-link");
+    if (!sections.length || !navLinks.length) return;
+
     let ticking = false;
 
     function updateActiveSection() {
@@ -143,7 +120,4 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("load", updateActiveSection);
-    window.addEventListener("scroll", () => {
-        document.body.classList.toggle("scrolled", window.scrollY > 100);
-    });
 });
