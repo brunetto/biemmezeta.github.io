@@ -55,10 +55,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/css");
-    eleventyConfig.addPassthroughCopy({
-        "robots.txt": "robots.txt",
-        "favicon.ico": "favicon.ico"
-    });
+    eleventyConfig.addPassthroughCopy("src/robots.txt");
+    eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
     // aggiungo un dato globale con il timestamp di build, 
     // così posso forzare il refresh delle immagini in cache
