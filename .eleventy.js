@@ -2,7 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const Image = require("@11ty/eleventy-img");
 
-
+// prendo i titoli dalle cartelle, 
+// rimuovendo eventuali numeri iniziali e trattini, 
+// e mettendo in maiuscolo la prima lettera di ogni parola
 function formatTitle(slug) {
     return slug
         .replace(/^\d+-/, "")   // rimuove il numero iniziale
@@ -38,12 +40,14 @@ module.exports = function (eleventyConfig) {
         </a>`;
     }
 
+    // aggiungo il plugin per generare la sitemap
     eleventyConfig.addPlugin(require("@quasibit/eleventy-plugin-sitemap"), {
         sitemap: {
             hostname: "https://biemmezeta.com"
         }
     });
 
+    // copio le immagini e gli script nella cartella di output
     eleventyConfig.addPassthroughCopy("photos/hero");
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
     eleventyConfig.addPassthroughCopy("src/js");
@@ -53,6 +57,14 @@ module.exports = function (eleventyConfig) {
     });
     eleventyConfig.addPassthroughCopy("robots.txt");
     eleventyConfig.addPassthroughCopy("favicon.ico");
+
+    // aggiungo un dato globale con il timestamp di build, 
+    // così posso forzare il refresh delle immagini in cache
+    eleventyConfig.addGlobalData("build", () => {
+        return {
+            time: Date.now()
+        };
+    });
 
     // leggere automaticamente le cartelle foto
     const fs = require("fs");
@@ -67,6 +79,9 @@ module.exports = function (eleventyConfig) {
 
     });
 
+    // aggiungo un dato globale con una funzione che restituisce 
+    // un'immagine random dalla cartella hero, 
+    // escludendo l'ultima mostrata finché non vengono mostrate tutte le altre
     eleventyConfig.addGlobalData("randomHero", () => {
         const heroDir = "./photos/hero";
         const files = fs.readdirSync(heroDir)
