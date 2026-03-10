@@ -48,15 +48,15 @@ module.exports = function (eleventyConfig) {
     });
 
     // copio le immagini e gli script nella cartella di output
+    eleventyConfig.addPassthroughCopy({
+        "node_modules/photoswipe/dist": "js/photoswipe"
+    });
     eleventyConfig.addPassthroughCopy("photos/hero");
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/css");
-    eleventyConfig.addPassthroughCopy({
-        "node_modules/photoswipe/dist": "src/js/photoswipe"
-    });
-    eleventyConfig.addPassthroughCopy("robots.txt");
-    eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.addPassthroughCopy("src/robots.txt");
+    eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
     // aggiungo un dato globale con il timestamp di build, 
     // così posso forzare il refresh delle immagini in cache
