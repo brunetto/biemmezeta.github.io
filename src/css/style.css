@@ -79,7 +79,7 @@ main {
 
     z-index: 2;
 
-    max-width: 10ch;
+    /* max-width: 10ch; */
     text-align: center;
     /* regola la dimensione del font a seconda dello schermo ma senza esagerare */
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -88,6 +88,28 @@ main {
     /* font-family: "Libre Baskerville", serif; */
     font-family: "Bona Nova", serif;
     /* text-transform: uppercase; */
+}
+
+.hero-title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+.hero-title h1 {
+    margin-bottom: 4px;
+    /* line-height: 1.05; */
+}
+
+.hero-subtitle {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.75;
 }
 
 .scroll-hint {
