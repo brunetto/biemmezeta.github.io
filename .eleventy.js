@@ -19,7 +19,7 @@ module.exports = function (eleventyConfig) {
             widths: [400, 800, 1200, 1600],
             formats: ["webp", "jpeg"],
             outputDir: "./_site/img/",
-            urlPath: "/img/"
+            urlPath: "img/"
         });
 
         const largest = metadata.jpeg[metadata.jpeg.length - 1];
