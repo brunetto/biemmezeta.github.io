@@ -49,7 +49,9 @@ module.exports = function (eleventyConfig) {
 
     // copio le immagini e gli script nella cartella di output
     eleventyConfig.addPassthroughCopy({
-        "node_modules/photoswipe/dist": "js/photoswipe"
+        "node_modules/photoswipe/dist/photoswipe-lightbox.esm.js": "js/photoswipe/photoswipe-lightbox.esm.js",
+        "node_modules/photoswipe/dist/photoswipe.esm.js": "js/photoswipe/photoswipe.esm.js",
+        "node_modules/photoswipe/dist/photoswipe.css": "js/photoswipe/photoswipe.css"
     });
     eleventyConfig.addPassthroughCopy("photos/hero");
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
