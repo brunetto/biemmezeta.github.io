@@ -287,6 +287,34 @@ body.scrolled .scroll-hint {
     transform: scale(1.03);
 }
 
+/* ABOUT */
+
+.about {
+    max-width: 720px;
+    margin: 160px auto;
+    padding: 0 20px;
+}
+
+.about h1 {
+    margin-bottom: 40px;
+}
+
+.about p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.about-intro {
+    font-size: 1.2rem;
+}
+
+.about img {
+    width: 220px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+}
+
+
 /* CONTACT */
 
 #contact {

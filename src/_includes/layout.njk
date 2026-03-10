@@ -43,24 +43,28 @@ window.heroImages = [
 <script type="module" src="js/gallery.js" defer></script>
 
 <link rel="icon" href="favicon.ico">
+<base href="{{ '/' | url }}">
 </head>
 
 <body>
-<div id="top"></div>
-<header class="hero" id="hero">
-<div class="hero-title">
-      <h1>biemmezeta</h1>
-      <p class="hero-subtitle">Photographer based in Venice</p>
-  </div>
+    <div id="top"></div>
+    <header class="hero" id="hero">
+        <div class="hero-title">
+            <h1>biemmezeta</h1>
+            <p class="hero-subtitle">Photographer based in Venice</p>
+        </div>
 
-<div class="scroll-hint" id="scroll-hint">
-    ↓
-</div>
-</header>
+        <div class="scroll-hint" id="scroll-hint">
+            ↓
+        </div>
+    </header>
 
-<main>
-{{ content | safe }}
-</main>
+    <main>
+    {{ content | safe }}
+    </main>
 
-</body>
+    {% if pageScripts %}
+    {{ pageScripts | safe }}
+    {% endif %}
+    </body>
 </html>

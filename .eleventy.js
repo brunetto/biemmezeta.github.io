@@ -53,7 +53,7 @@ module.exports = function (eleventyConfig) {
         "node_modules/photoswipe/dist/photoswipe.esm.js": "js/photoswipe/photoswipe.esm.js",
         "node_modules/photoswipe/dist/photoswipe.css": "js/photoswipe/photoswipe.css"
     });
-    eleventyConfig.addPassthroughCopy("photos/hero");
+    eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/css");
@@ -73,11 +73,11 @@ module.exports = function (eleventyConfig) {
     const path = require("path");
 
     eleventyConfig.addGlobalData("heroImages", () => {
-        const heroDir = "./photos/hero";
+        const heroDir = "./assets/hero";
         const files = fs.readdirSync(heroDir)
             .filter(file => /\.(jpg|jpeg|png)$/i.test(file));
 
-        return files.map(file => `./photos/hero/${file}`);
+        return files.map(file => `./assets/hero/${file}`);
 
     });
 
@@ -85,12 +85,12 @@ module.exports = function (eleventyConfig) {
     // un'immagine random dalla cartella hero, 
     // escludendo l'ultima mostrata finché non vengono mostrate tutte le altre
     eleventyConfig.addGlobalData("randomHero", () => {
-        const heroDir = "./photos/hero";
+        const heroDir = "./assets/hero";
         const files = fs.readdirSync(heroDir)
             .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file));
         const random = files[Math.floor(Math.random() * files.length)];
 
-        return `/photos/hero/${random}`;
+        return `/assets/hero/${random}`;
 
     });
 
@@ -100,7 +100,6 @@ module.exports = function (eleventyConfig) {
 
         return fs.readdirSync(base)
             .filter(name =>
-                name !== "hero" &&
                 fs.statSync(path.join(base, name)).isDirectory()
             )
             .map(category => {
