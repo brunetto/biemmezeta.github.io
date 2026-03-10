@@ -50,7 +50,7 @@ module.exports = function (eleventyConfig) {
     // copio le immagini e gli script nella cartella di output
     eleventyConfig.addPassthroughCopy("photos/hero");
     eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-    eleventyConfig.addPassthroughCopy("src/js");
+    eleventyConfig.addPassthroughCopy("src/js: js");
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy({
         "node_modules/photoswipe/dist": "js/photoswipe"
