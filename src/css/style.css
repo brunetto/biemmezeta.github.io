@@ -70,13 +70,6 @@ main {
 
 .hero h1 {
     position: relative;
-    /* posiziono il titolo al centro dello schermo, ma un po' più in basso per lasciare spazio alla foto */
-    /* position: absolute;
-    bottom: 12vh;
-    left: 50%;
-    transform: translateX(-50%); */
-
-
     z-index: 2;
 
     /* max-width: 10ch; */
@@ -160,10 +153,6 @@ body.scrolled .scroll-hint {
 
     padding: 20px;
     background: #111;
-    /* background: linear-gradient(rgba(17, 17, 17, 0.8),
-            rgba(17, 17, 17, 1)); */
-    /* border-bottom: 1px solid #222; */
-
     transition: all 0.25s ease;
 }
 
@@ -180,22 +169,6 @@ body.scrolled .scroll-hint {
     background: rgba(17, 17, 17, 0.95);
 }
 
-/* .categories a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.categories a:hover {
-    color: white;
-}
-
-.categories a.active {
-    color: white;
-    border-bottom: 1px solid white;
-    padding-bottom: 4px;
-} */
 .categories a {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
@@ -217,7 +190,6 @@ body.scrolled .scroll-hint {
 }
 
 /* SEZIONI */
-
 .section {
     padding: 10px 24px;
     scroll-margin-top: 50px;
@@ -233,13 +205,6 @@ body.scrolled .scroll-hint {
 }
 
 /* GALLERY */
-
-/* .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
-} */
-
 /* laypout justified della griglia */
 .gallery {
     display: flex;
@@ -437,4 +402,73 @@ a:visited {
 
 .contact button:hover {
     opacity: 0.7;
+}
+
+/* ABOUT NAV */
+.about-nav {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    font-family: "Bona Nova", serif;
+    font-size: 1.1rem;
+    z-index: 1000;
+}
+
+.about-nav a {
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.about-nav a:hover {
+    opacity: 1;
+}
+
+.about {
+    max-width: 640px;
+    margin: 80px auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.about-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.about-photo img {
+    width: 240px;
+    border-radius: 3px;
+}
+
+/* prima frase un po' più grande per evidenziare l'introduzione */
+.about-intro {
+    line-height: 1.6;
+    margin-bottom: 30px;
+
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
+    letter-spacing: 0.01em;
+}
+
+/* contenitore del testo */
+.about-text {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.about-text p {
+    line-height: 1.75;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
 }
