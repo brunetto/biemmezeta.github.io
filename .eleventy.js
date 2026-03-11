@@ -125,8 +125,9 @@ module.exports = function (eleventyConfig) {
     return {
         dir: {
             // aggiungo il pathPrefix per gestire il sito su GitHub Pages 
-            // sotto il percorso /biemmezeta/
-            pathPrefix: "/biemmezeta/",
+            // sotto il percorso di gh pages
+            // pathPrefix: "brunettoziosi.com/biemmezeta/",
+            // pathPrefix: "brunettoziosi.com/biemmezeta/",
             input: "src",
             output: "_site"
         }
