@@ -3,6 +3,14 @@ layout: layout.njk
 title: biemmezeta 
 ---
 
+{# eccezione per far funzionare i path #}
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="js/photoswipe/photoswipe.css">
+
+<script src="js/navigation.js" defer></script>
+<script type="module" src="js/gallery.js"></script>
+
+
 <script>
     window.heroImages = [{% for img in heroImages %}
             "{{ img }}",
