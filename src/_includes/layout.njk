@@ -37,6 +37,8 @@
         {% endif %}
         <main>
             {{ content | safe }}
+            {% include "services.njk" %}
+            {% include "contact.njk" %}
         </main>
         {% if pageScripts %}
             {{ pageScripts | safe }}
