@@ -472,3 +472,77 @@ a:visited {
     font-size: 1.05rem;
     margin-bottom: 20px;
 }
+
+/* services */
+
+.services {
+    margin: 140px auto 40px;
+    text-align: center;
+}
+
+.services-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.services-links {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+}
+
+.services-links span {
+    margin: 0 6px;
+    opacity: 0.5;
+}
+
+.services-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.services-links a:hover {
+    color: white;
+}
+
+/* HEADER */
+.site-header {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+}
+
+.site-logo {
+    font-family: "Bona Nova", serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+/* COMING SOON */
+
+.comingsoon {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.comingsoon h1 {
+    font-family: "Bona Nova", serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.comingsoon-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}

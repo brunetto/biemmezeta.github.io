@@ -30,6 +30,11 @@
         <link rel="icon" href="../favicon.ico">
     </head>
     <body>
+        {% if page.url != '/' %}
+            <header class="site-header">
+                <a href="/" class="site-logo">biemmezeta</a>
+            </header>
+        {% endif %}
         <main>
             {{ content | safe }}
         </main>
