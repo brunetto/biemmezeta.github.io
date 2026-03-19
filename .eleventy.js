@@ -14,7 +14,6 @@ function formatTitle(slug) {
 
 module.exports = function (eleventyConfig) {
     async function imageShortcode(src, alt) {
-
         let metadata = await Image(src, {
             widths: [400, 800, 1200, 1600],
             formats: ["webp", "jpeg"],
@@ -38,6 +37,31 @@ module.exports = function (eleventyConfig) {
         data-pswp-height="${largest.height}">
         ${imgHTML}
         </a>`;
+    }
+
+    function getGalleries() {
+        const base = path.join(process.cwd(), "photos");
+
+        return fs.readdirSync(base)
+            .filter(name =>
+                fs.statSync(path.join(base, name)).isDirectory()
+            )
+            .map(category => {
+
+                const folder = path.join(base, category);
+
+                const photos = fs.readdirSync(folder)
+                    .filter(file =>
+                        /\.(jpg|jpeg|png|webp)$/i.test(file)
+                    )
+                    .map(file => `photos/${category}/${file}`);
+
+                return {
+                    name: category,
+                    title: formatTitle(category),
+                    photos
+                };
+            });
     }
 
     // aggiungo il plugin per generare la sitemap
@@ -67,10 +91,6 @@ module.exports = function (eleventyConfig) {
             time: Date.now()
         };
     });
-
-    // leggere automaticamente le cartelle foto
-    const fs = require("fs");
-    const path = require("path");
 
     eleventyConfig.addGlobalData("heroImages", () => {
         const heroDir = "./assets/hero";
@@ -120,6 +140,12 @@ module.exports = function (eleventyConfig) {
 
             });
 
+    });
+
+    eleventyConfig.addGlobalData("galleriesProcessed", async () => {
+        const galleries = getGalleries();
+
+        return galleries; // temporaneo
     });
 
     return {

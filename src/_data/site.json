@@ -4,25 +4,43 @@
     "logoStyle": "text",
     "mode": "portfolio",
     "hero": {
-        "mode": "random",
         "scrollHint": "↓"
     },
-    "gallery": {
-        "showTitles": false
+    "components": {
+        "pricelist": {
+            "isActive": false
+        },
+        "services": {
+            "isActive": true
+        },
+        "wall": {
+            "isActive": true,
+            "withNav": true,
+            "withTitles": false
+        }
     },
-    "owner": "Brunetto Marco Ziosi",
-    "image": "/assets/about/about.jpg",
     "url": "https://biemmezeta.com",
-    "sameAs": [
-        "https://www.instagram.com/biemmezeta"
-    ],
-    "jobTitle": "Photographer",
-    "email": "info@biemmezeta.com",
-    "phone": "+393474958152",
-    "whatsappLink": "https://wa.me/393474958152",
-    "instagram": "https://instagram.com/biemmezeta",
-    "location": "Venice, Italy",
-    "formspreeEndpoint": "https://formspree.io/f/mnjgjgea",
+    "owner": {
+        "name": "Brunetto Marco Ziosi",
+        "image": "/assets/about/about.jpg",
+        "sameAs": [
+            "https://www.instagram.com/biemmezeta"
+        ],
+        "jobTitle": "Photographer"
+    },
+    "contacts": {
+        "contactText": "Based in Venice. Available Worldwide.",
+        "email": "info@biemmezeta.com",
+        "phone": "+393474958152",
+        "whatsappLink": "https://wa.me/393474958152",
+        "instagram": "https://instagram.com/biemmezeta",
+        "location": {
+            "name": "My Cocktail Bar",
+            "address": "Via Roma 123, Venezia",
+            "mapsEmbed": "https://www.google.com/maps?q=Via+Roma+123,+Venezia&output=embed"
+        },
+        "formspreeEndpoint": "https://formspree.io/f/mnjgjgea"
+    },
     "og": {
         "title": "Biemmezeta – Photographer",
         "description": "Portrait, documentary and travel photography from Venice.",

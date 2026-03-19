@@ -423,6 +423,8 @@ a:visited {
 .contact-text {
     margin-bottom: 30px;
     line-height: 1.6;
+    /* mantiene i ritorni a capo presenti nel testo */
+    white-space: pre-line;
 }
 
 .contact-links a {
