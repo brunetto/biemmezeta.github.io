@@ -50,32 +50,6 @@ async function processImages(galleries) {
 }
 
 module.exports = function (eleventyConfig) {
-    // async function imageShortcode(src, alt) {
-    //     let metadata = await Image(src, {
-    //         widths: [400, 800, 1200, 1600],
-    //         formats: ["webp", "jpeg"],
-    //         outputDir: "./_site/img/",
-    //         urlPath: "img/"
-    //     });
-
-    //     const largest = metadata.jpeg[metadata.jpeg.length - 1];
-    //     const imageAttributes = {
-    //         alt,
-    //         loading: "lazy",
-    //         decoding: "async"
-    //     };
-
-    //     const imgHTML = Image.generateHTML(metadata, imageAttributes);
-
-    //     return `
-    //     <a href="${largest.url}"
-    //     class="gallery-item"
-    //     data-pswp-width="${largest.width}"
-    //     data-pswp-height="${largest.height}">
-    //     ${imgHTML}
-    //     </a>`;
-    // }
-
     // aggiungo il plugin per generare la sitemap
     eleventyConfig.addPlugin(require("@quasibit/eleventy-plugin-sitemap"), {
         sitemap: {
@@ -90,7 +64,6 @@ module.exports = function (eleventyConfig) {
         "node_modules/photoswipe/dist/photoswipe.css": "js/photoswipe/photoswipe.css"
     });
     eleventyConfig.addPassthroughCopy("assets");
-    // eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
@@ -126,34 +99,6 @@ module.exports = function (eleventyConfig) {
 
     });
 
-    // eleventyConfig.addGlobalData("galleries", () => {
-
-    //     const base = path.join(process.cwd(), "photos");
-
-    //     return fs.readdirSync(base)
-    //         .filter(name =>
-    //             fs.statSync(path.join(base, name)).isDirectory()
-    //         )
-    //         .map(category => {
-
-    //             const folder = path.join(base, category);
-
-    //             const photos = fs.readdirSync(folder)
-    //                 .filter(file =>
-    //                     /\.(jpg|jpeg|png|webp)$/i.test(file)
-    //                 )
-    //                 .map(file => `photos/${category}/${file}`);
-
-    //             return {
-    //                 name: category,
-    //                 title: formatTitle(category),
-    //                 photos
-    //             };
-
-    //         });
-
-    // });
-
     eleventyConfig.addGlobalData("galleries", async () => {
 
         const base = path.join(process.cwd(), "photos");
@@ -163,9 +108,7 @@ module.exports = function (eleventyConfig) {
                 fs.statSync(path.join(base, name)).isDirectory()
             )
             .map(category => {
-
                 const folder = path.join(base, category);
-
                 const photos = fs.readdirSync(folder)
                     .filter(file =>
                         /\.(jpg|jpeg|png|webp)$/i.test(file)
