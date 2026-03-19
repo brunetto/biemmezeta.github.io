@@ -12,57 +12,69 @@ function formatTitle(slug) {
         .replace(/\b\w/g, l => l.toUpperCase());
 }
 
+async function processImages(galleries) {
+    return Promise.all(
+        galleries.map(async (gallery) => {
+
+            const photos = await Promise.all(
+                gallery.photos.map(async (src) => {
+
+                    const metadata = await Image(src, {
+                        widths: [400, 800, 1200, 1600],
+                        formats: ["webp", "jpeg"],
+                        outputDir: "./_site/img/",
+                        urlPath: "/img/"
+                    });
+
+                    const largest = metadata.jpeg.at(-1);
+
+                    return {
+                        src: largest.url,
+                        width: largest.width,
+                        height: largest.height,
+                        html: Image.generateHTML(metadata, {
+                            alt: gallery.title,
+                            loading: "lazy",
+                            decoding: "async"
+                        })
+                    };
+                })
+            );
+
+            return {
+                ...gallery,
+                photos
+            };
+        })
+    );
+}
+
 module.exports = function (eleventyConfig) {
-    async function imageShortcode(src, alt) {
-        let metadata = await Image(src, {
-            widths: [400, 800, 1200, 1600],
-            formats: ["webp", "jpeg"],
-            outputDir: "./_site/img/",
-            urlPath: "img/"
-        });
+    // async function imageShortcode(src, alt) {
+    //     let metadata = await Image(src, {
+    //         widths: [400, 800, 1200, 1600],
+    //         formats: ["webp", "jpeg"],
+    //         outputDir: "./_site/img/",
+    //         urlPath: "img/"
+    //     });
 
-        const largest = metadata.jpeg[metadata.jpeg.length - 1];
-        const imageAttributes = {
-            alt,
-            loading: "lazy",
-            decoding: "async"
-        };
+    //     const largest = metadata.jpeg[metadata.jpeg.length - 1];
+    //     const imageAttributes = {
+    //         alt,
+    //         loading: "lazy",
+    //         decoding: "async"
+    //     };
 
-        const imgHTML = Image.generateHTML(metadata, imageAttributes);
+    //     const imgHTML = Image.generateHTML(metadata, imageAttributes);
 
-        return `
-        <a href="${largest.url}"
-        class="gallery-item"
-        data-pswp-width="${largest.width}"
-        data-pswp-height="${largest.height}">
-        ${imgHTML}
-        </a>`;
-    }
-
-    function getGalleries() {
-        const base = path.join(process.cwd(), "photos");
-
-        return fs.readdirSync(base)
-            .filter(name =>
-                fs.statSync(path.join(base, name)).isDirectory()
-            )
-            .map(category => {
-
-                const folder = path.join(base, category);
-
-                const photos = fs.readdirSync(folder)
-                    .filter(file =>
-                        /\.(jpg|jpeg|png|webp)$/i.test(file)
-                    )
-                    .map(file => `photos/${category}/${file}`);
-
-                return {
-                    name: category,
-                    title: formatTitle(category),
-                    photos
-                };
-            });
-    }
+    //     return `
+    //     <a href="${largest.url}"
+    //     class="gallery-item"
+    //     data-pswp-width="${largest.width}"
+    //     data-pswp-height="${largest.height}">
+    //     ${imgHTML}
+    //     </a>`;
+    // }
 
     // aggiungo il plugin per generare la sitemap
     eleventyConfig.addPlugin(require("@quasibit/eleventy-plugin-sitemap"), {
@@ -78,7 +90,7 @@ module.exports = function (eleventyConfig) {
         "node_modules/photoswipe/dist/photoswipe.css": "js/photoswipe/photoswipe.css"
     });
     eleventyConfig.addPassthroughCopy("assets");
-    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+    // eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
@@ -114,11 +126,39 @@ module.exports = function (eleventyConfig) {
 
     });
 
-    eleventyConfig.addGlobalData("galleries", () => {
+    // eleventyConfig.addGlobalData("galleries", () => {
+
+    //     const base = path.join(process.cwd(), "photos");
+
+    //     return fs.readdirSync(base)
+    //         .filter(name =>
+    //             fs.statSync(path.join(base, name)).isDirectory()
+    //         )
+    //         .map(category => {
+
+    //             const folder = path.join(base, category);
+
+    //             const photos = fs.readdirSync(folder)
+    //                 .filter(file =>
+    //                     /\.(jpg|jpeg|png|webp)$/i.test(file)
+    //                 )
+    //                 .map(file => `photos/${category}/${file}`);
+
+    //             return {
+    //                 name: category,
+    //                 title: formatTitle(category),
+    //                 photos
+    //             };
+
+    //         });
+
+    // });
+
+    eleventyConfig.addGlobalData("galleries", async () => {
 
         const base = path.join(process.cwd(), "photos");
 
-        return fs.readdirSync(base)
+        const raw = fs.readdirSync(base)
             .filter(name =>
                 fs.statSync(path.join(base, name)).isDirectory()
             )
@@ -137,15 +177,9 @@ module.exports = function (eleventyConfig) {
                     title: formatTitle(category),
                     photos
                 };
-
             });
 
-    });
-
-    eleventyConfig.addGlobalData("galleriesProcessed", async () => {
-        const galleries = getGalleries();
-
-        return galleries; // temporaneo
+        return await processImages(raw);
     });
 
     return {

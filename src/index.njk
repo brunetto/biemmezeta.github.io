@@ -12,9 +12,9 @@ title: biemmezeta
         {% if site.components.wall.withNav %}
             {% include "wall-nav.njk" %}
         {% endif %}
-        {# {% if site.components.wall.isActive === true %} #}
-        {% include "wall.njk" %}
-        {# {% endif %} #}
+        {% if site.components.wall.isActive === true %}
+            {% include "wall.njk" %}
+        {% endif %}
         {% if site.components.pricelist.isActive %}
             {% include "pricelist.njk" %}
         {% endif %}
