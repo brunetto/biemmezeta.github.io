@@ -3,12 +3,29 @@
 </script>
 <div id="top"></div>
 <header class="hero" id="hero">
-    <div class="hero-title">
-        {% set logoVariant = "hero" %}
-        {% include "logo.njk" %}
-        <p class="hero-subtitle">{{ site.tagline }}</p>
+    <div class="hero-content">
+        <div class="hero-title">
+            {% set logoVariant = "hero" %}
+            {% include "logo.njk" %}
+            {% if subtitle %}
+                <p class="hero-subtitle">{{ subtitle }}</p>
+            {% else %}
+                <p class="hero-subtitle">{{ site.tagline }}</p>
+            {% endif %}
+        </div>
+        {% if buttons %}
+            <div class="hero-buttons">
+                {% for btn in buttons %}
+                    <a href="{{ btn.href }}" class="hero-btn">
+                        {{ btn.label }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-    <div class="scroll-hint" id="scroll-hint">
-        {{ site.hero.scrollHint }}
-    </div>
+    {% if showScrollHint != false %}
+        <div class="scroll-hint" id="scroll-hint">
+            {{ site.hero.scrollHint }}
+        </div>
+    {% endif %}
 </header>

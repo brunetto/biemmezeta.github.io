@@ -25,19 +25,20 @@
         <link rel="icon" href="/favicon.ico">
     </head>
     <body>
-        {% if page.url != '/' %}
+        {% if showHeaderLogo != false %}
             <header class="site-header">
                 {% set logoVariant = "header" %}
-                {% include "logo.njk" %}</a>
-        </header>
-    {% endif %}
-    <main>
-        {{ content | safe }}
-        {% include "services.njk" %}
-        {% include "contact.njk" %}
-        {% include "footer.njk" %}
-    </main>
-    {% if pageScripts %}
-        {{ pageScripts | safe }}
-    {% endif %}
+                {% include "logo.njk" %}
+            </header>
+        {% endif %}
+        <main>
+            {{ content | safe }}
+            {% include "services.njk" %}
+            {% include "contact.njk" %}
+            {% include "footer.njk" %}
+        </main>
+        {% if pageScripts %}
+            {{ pageScripts | safe }}
+        {% endif %}
+    </body>
 </html></body></html>

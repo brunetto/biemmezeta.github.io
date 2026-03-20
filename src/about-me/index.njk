@@ -1,0 +1,14 @@
+---
+layout: layout.njk
+showHeaderLogo: false
+title: About me
+permalink: /AboutMe/
+---
+
+{% set subtitle = "Photographer based in Venice" %}
+{% set showScrollHint = false %}
+{% set buttons = [
+    { "label": "View my work", "href": "/" },
+    { "label": "View my services", "href": "/#services" }
+] %}
+{% include "hero.njk" %}

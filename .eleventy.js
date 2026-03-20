@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
         const files = fs.readdirSync(heroDir)
             .filter(file => /\.(jpg|jpeg|png)$/i.test(file));
 
-        return files.map(file => `./assets/hero/${file}`);
+        return files.map(file => `/assets/hero/${file}`);
 
     });
 
