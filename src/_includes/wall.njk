@@ -3,12 +3,6 @@
         {% if site.components.wall.withTitles %}
             <h2 class="section-title">{{ gallery.title }}</h2>
         {% endif %}
-        <div class="gallery">
-            {% for photo in gallery.photos %}
-                <a href="{{ photo.src }}" class="gallery-item" data-pswp-width="{{ photo.width }}" data-pswp-height="{{ photo.height }}">
-                    {{ photo.html | safe }}
-                </a>
-            {% endfor %}
-        </div>
+        {% include "gallery.njk" %}
     </section>
 {% endfor %}

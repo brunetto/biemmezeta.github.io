@@ -1,0 +1,7 @@
+<div class="gallery">
+    {% for photo in gallery.photos %}
+        <a href="{{ photo.src }}" class="gallery-item" data-pswp-width="{{ photo.width }}" data-pswp-height="{{ photo.height }}">
+            {{ photo.html | safe }}
+        </a>
+    {% endfor %}
+</div>
