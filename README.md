@@ -11,3 +11,6 @@
 * infinite scroll
 * privacy policy © 2026 Nome Cliente, Privacy Policy
 * hostare googel fonts e poi No cookies, no tracking.
+
+npm run dev
+npm run build
