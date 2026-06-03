@@ -1,32 +1,34 @@
 <section id="contact" class="contact section">
     <h2>Contacts</h2>
     <p class="contact-text">
-            {% if site.contacts.contactText %}
-                {{ site.contacts.contactText }}
-            {% endif %}
-        </p>
-        <p class="contact-links">
-            {% if site.contacts.email %}
-                <a href="mailto:{{ site.contacts.email }}">Mail</a>
-                {% if site.contacts.whatsappLink or site.contacts.instagram %},
-                {% endif %}
-            {% endif %}
-            {% if site.contacts.whatsappLink %}
-                <a href="{{ site.contacts.whatsappLink }}" target="_blank">WhatsApp</a>
-                {% if site.contacts.instagram %},
-                {% endif %}
-            {% endif %}
-            {% if site.contacts.instagram %}
-                <a href="{{ site.contacts.instagram }}" target="_blank">Instagram</a>
-            {% endif %}
-        </p>
-        {% if site.mode == "portfolio" %}
-            {% include "contact-form.njk" %}
-        {% else %}
-            {% if site.contacts.location.mapsEmbed %}
-                <div class="contact-map">
-                    <iframe src="{{ site.contacts.location.mapsEmbed }}" width="100%" height="300" style="border:0;" loading="lazy"></iframe>
-                </div>
+        {% if site.contacts.contactText %}
+            {{ site.contacts.contactText }}
+        {% endif %}
+    </p>
+    <p class="contact-links">
+        {% if site.contacts.email %}
+            <a href="mailto:{{ site.contacts.email }}">Mail</a>
+            {% if site.contacts.whatsappLink or site.contacts.instagram %},
             {% endif %}
         {% endif %}
-    </section>
+        {% if site.contacts.whatsappLink %}
+            <a href="{{ site.contacts.whatsappLink }}" target="_blank">WhatsApp</a>
+            {% if site.contacts.instagram %},
+            {% endif %}
+        {% endif %}
+        {% if site.contacts.instagram %}
+            <a href="{{ site.contacts.instagram }}" target="_blank">Instagram</a>
+        {% endif %}
+    </p>
+    {% if site.mode == "portfolio" %}
+        {% if site.components.contactForm.isActive %}
+            {% include "contact-form.njk" %}
+        {% endif %}
+    {% else %}
+        {% if site.contacts.location.mapsEmbed %}
+            <div class="contact-map">
+                <iframe src="{{ site.contacts.location.mapsEmbed }}" width="100%" height="300" style="border:0;" loading="lazy"></iframe>
+            </div>
+        {% endif %}
+    {% endif %}
+</section>

@@ -33,7 +33,11 @@
         {% endif %}
         <main>
             {{ content | safe }}
-            {% include "services.njk" %}
+            {% if site.mode == "portfolio" %}
+                {% if site.components.services.isActive %}
+                    {% include "services.njk" %}
+                {% endif %}
+            {% endif %}
             {% include "contact.njk" %}
             {% include "footer.njk" %}
         </main>
