@@ -600,7 +600,7 @@ textarea:-webkit-autofill {
     opacity: 0.8;
 }
 
-/* ================= service ================= */
+/* ================= service page ================= */
 
 .service {
     min-height: auto;
@@ -609,7 +609,7 @@ textarea:-webkit-autofill {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: justify;
 
     max-width: 640px;
     margin: 0 auto;
@@ -620,6 +620,13 @@ textarea:-webkit-autofill {
     font-family: var(--font-display);
     font-size: 2rem;
     margin-bottom: 20px;
+}
+
+.service-intro {
+    max-width: 480px;
+    margin: 0 auto 30px;
+    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
+    text-align: center;
 }
 
 .service-text {

@@ -11,9 +11,10 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap"
             rel="stylesheet">
-        <meta property="og:title" content="{{ site.og.title }}">
-        <meta property="og:description" content="{{ site.og.description }}">
         <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ ogTitle or site.og.title }}">
+        <meta property="og:description" content="{{ ogDescription or site.og.description }}">
+        <meta property="og:image" content="{{ ogImage or site.og.image }}">
         <script type="application/ld+json">
             { "@context": "https://schema.org", "@type": "Person", "name": "{{ site.owner.name }}", "jobTitle": "{{ site.owner.jobTitle }} ", "url": "{{ site.url }}
             ", "image": "{{ site.url }}{{ site.owner.image }}", "sameAs": {{ site.owner.sameAs | dump | safe }} }
@@ -45,4 +46,4 @@
             {{ pageScripts | safe }}
         {% endif %}
     </body>
-</html></body></html>
+</html>

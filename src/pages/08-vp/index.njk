@@ -3,11 +3,14 @@ layout: layout.njk
 title: Venice Portraits
 tags: 
 permalink: /vp/
+ogImage: /assets/og/vp.jpg
+ogTitle: Venice Portraits – Biemmezeta
+ogDescription: Honest, natural photography for couples, families and meaningful moments in Venice.
 ---
 
 <section class="service">
     <h1>Venice Portraits</h1>
-    <p class="textpage-intro">
+    <p class="service-intro">
         Honest, natural photography for couples, families and meaningful moments in Venice.
     </p>
     <div class="service-text">
@@ -20,14 +23,14 @@ permalink: /vp/
         <p>
             Every session starts with a conversation. If you’re planning a visit to Venice, celebrating a special occasion or simply
             have an idea you’d like to explore, I’d love to hear from you.
-            <a href="/contact/">
+            <a href="/contacts/">
                 <b>Get in touch</b>
             </a>.
         </p>
     </div>
 </section>
 <div class="section">
-    {% set gallery = pageGalleries["06-vp"]["gallery-1"] %}
+    {% set gallery = pageGalleries["08-vp"]["gallery-1"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}
@@ -41,7 +44,7 @@ permalink: /vp/
     </p>
 </section>
 <div class="section">
-    {% set gallery = pageGalleries["06-vp"]["gallery-2"] %}
+    {% set gallery = pageGalleries["08-vp"]["gallery-2"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}

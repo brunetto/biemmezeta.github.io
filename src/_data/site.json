@@ -19,7 +19,7 @@
             "withTitles": false
         },
         "contactForm": {
-            "isActive": false
+            "isActive": true
         }
     },
     "url": "https://biemmezeta.com",
@@ -47,7 +47,7 @@
     "og": {
         "title": "Biemmezeta – Photographer",
         "description": "Portrait, documentary and travel photography from Venice.",
-        "image": "/assets/og-image.jpg"
+        "image": "/assets/og/default.jpg"
     },
     "creator": {
         "name": "Brunetto Marco Ziosi",
