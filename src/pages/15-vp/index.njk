@@ -1,0 +1,51 @@
+---
+layout: layout.njk
+title: Venice Portraits
+tags: 
+permalink: /vp/
+ogImage: /assets/og/vp.jpg
+ogTitle: Venice Portraits – Biemmezeta
+ogDescription: Honest, natural photography for couples, families and meaningful moments in Venice.
+---
+
+<section class="service">
+    <h1>Venice Portraits</h1>
+    <p class="service-intro">
+        Honest, natural photography for couples, families and meaningful moments in Venice.
+    </p>
+    <div class="service-text">
+        <p>
+            I photograph people and the moments they share together: couples visiting Venice, destination weddings, families,
+            friends and meaningful events. Combining a documentary eye with gentle direction, I help people feel comfortable in
+            front of the camera while creating space for genuine moments, emotions and connections to emerge. The result is a
+            collection of photographs that are natural, personal and deeply connected to your experience.
+        </p>
+        <p>
+            Every session starts with a conversation. If you’re planning a visit to Venice, celebrating a special occasion or simply
+            have an idea you’d like to explore, I’d love to hear from you.
+            <a href="/contacts/">
+                <b>Get in touch</b>
+            </a>.
+        </p>
+    </div>
+</section>
+<div class="section">
+    {% set gallery = pageGalleries["vp"]["gallery-1"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>
+<section class="service">
+    <h1>Dolomites</h1>
+    <p>
+        Venice is often the starting point, but not the whole story. I also work in the Dolomites and across Northern Italy,
+        creating photographs in landscapes that become part of the story themselves — whether it’s an adventurous couple
+        session, an intimate elopement or simply a day spent exploring together.
+    </p>
+</section>
+<div class="section">
+    {% set gallery = pageGalleries["vp"]["gallery-2"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>

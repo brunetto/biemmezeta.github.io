@@ -1,0 +1,36 @@
+---
+layout: layout.njk
+title: Weddings
+tags: services
+permalink: /weds/
+ogImage: /assets/og/weds.jpg
+ogTitle: Weddings – Biemmezeta
+ogDescription: Honest, personal wedding photography focused on genuine emotions, natural interactions and the moments that make your celebration unique.
+---
+
+<section class="service">
+    <h1>Weddings</h1>
+    <div class="service-text">
+        <p>
+            I tell wedding stories with an authentic and spontaneous approach, focusing on genuine emotions, natural interactions
+            and the moments that make every celebration unique. Every wedding is different, and so is the way I work. Sometimes that
+            means quietly observing from the sidelines; other times it means joining the atmosphere, helping people relax,
+            connecting with guests and creating the conditions for natural moments to unfold. Rather than following clichés, my goal
+            is to tell the story of who you are and how you chose to celebrate it, creating photographs that feel honest, personal
+            and true to your experience.
+        </p>
+        <p>
+            If you’re planning your wedding and feel that this approach resonates with you, I’d love to hear about you. Tell me a
+            little about yourselves, your celebration and what matters most to you, and we’ll see if we’re a good fit.
+            <a href="/contacts/">
+                <b>Get in touch</b>
+            </a>.
+        </p>
+    </div>
+</section>
+<div class="section">
+    {% set gallery = pageGalleries["weddings"]["gallery-1"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>

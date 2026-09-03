@@ -158,6 +158,35 @@ body.scrolled .scroll-hint {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* ================= PAGE HERO ================= */
+
+.page-hero {
+    width: 100%;
+    margin: 0;
+}
+
+.page-hero__image {
+    display: block;
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
+}
+
+.page-hero__title {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5vw 4rem;
+}
+
+.page-hero__title h1 {
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 0.9;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+}
+
+
 /* ================= LOGO ================= */
 
 .logo {
@@ -284,6 +313,24 @@ body.scrolled .scroll-hint {
     text-transform: uppercase;
     opacity: 0.7;
     position: relative;
+}
+
+.section h3 {
+    max-width: 1000px;
+    margin: 1rem auto 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.section h4 {
+    max-width: 1000px;
+    margin: 1rem auto 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-weight: 400;
+    line-height: 1.3;
 }
 
 /* ================== LINKS ================== */

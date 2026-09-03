@@ -1,0 +1,58 @@
+---
+layout: layout.njk
+title: Travel
+tags: services
+permalink: /travel/
+ogImage: /assets/og/travel.jpg
+ogTitle: Travel – Biemmezeta
+ogDescription: Honest, personal travel photography focused on genuine emotions, natural interactions and the moments that make your journey unique.
+---
+
+<section class="service">
+    <h1>Travel</h1>
+    <div class="service-text">
+        <p>Travel photography is my way of exploring and understanding the world. Through landscapes, people and everyday life,
+            I capture not only how a place looks, but also how it feels. I’m drawn to the stories, encounters and details that
+            reveal the character of a destination and the connection between those who live there and those who pass through. The
+            result is a collection of images that goes beyond documentation, conveying atmosphere, emotion and a genuine sense of
+            place.
+        </p>
+        <p>I’m also interested in documenting journeys from the inside, focusing on the people who experience them. Beyond the
+            destinations themselves, I look for the experiences, relationships and moments that make every trip unique.</p>
+    </div>
+</section>
+<div class="section">
+    <h2 class="section-title">Morocco</h2>
+    {% set gallery = pageGalleries["travel"]["Morocco"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>
+<div class="section">
+    <h2 class="section-title">India</h2>
+    {% set gallery = pageGalleries["travel"]["gallery-2"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>
+<div class="section">
+    <h2 class="section-title">Thailand</h2>
+    {% set gallery = pageGalleries["travel"]["gallery-3"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>
+<div class="section">
+    <h2 class="section-title">Australia</h2>
+    {% set gallery = pageGalleries["travel"]["gallery-4"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>
+<div class="section">
+    <h2 class="section-title">Following the Orient Express</h2>
+    {% set gallery = pageGalleries["travel"]["gallery-5"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+</div>
