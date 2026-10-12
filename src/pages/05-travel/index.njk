@@ -22,36 +22,46 @@ ogDescription: Honest, personal travel photography focused on genuine emotions, 
     </div>
 </section>
 <div class="section">
-    <h2 class="section-title">Morocco</h2>
-    {% set gallery = pageGalleries["travel"]["Morocco"] %}
+    <h2 class="section-title">Morocco 2026</h2>
+    {% set gallery = pageGalleries["travel"]["marocco-2026"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+    <h2 class="section-title">Morocco 2025</h2>
+    {% set gallery = pageGalleries["travel"]["marocco-2025"] %}
+    {% if gallery %}
+        {% include "gallery.njk" %}
+    {% endif %}
+    <h2 class="section-title">Morocco 2019</h2>
+    {% set gallery = pageGalleries["travel"]["marocco-2019"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}
 </div>
 <div class="section">
-    <h2 class="section-title">India</h2>
-    {% set gallery = pageGalleries["travel"]["gallery-2"] %}
+    <h2 class="section-title">India 2025</h2>
+    {% set gallery = pageGalleries["travel"]["india-2025"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}
 </div>
 <div class="section">
-    <h2 class="section-title">Thailand</h2>
-    {% set gallery = pageGalleries["travel"]["gallery-3"] %}
+    <h2 class="section-title">Thailand 2018</h2>
+    {% set gallery = pageGalleries["travel"]["thailand-2018"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}
 </div>
 <div class="section">
-    <h2 class="section-title">Australia</h2>
-    {% set gallery = pageGalleries["travel"]["gallery-4"] %}
+    <h2 class="section-title">Australia 2014</h2>
+    {% set gallery = pageGalleries["travel"]["australia-2014"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}
 </div>
 <div class="section">
-    <h2 class="section-title">Following the Orient Express</h2>
-    {% set gallery = pageGalleries["travel"]["gallery-5"] %}
+    <h2 class="section-title">Following the Orient Express 2010</h2>
+    {% set gallery = pageGalleries["travel"]["orient-express-2010"] %}
     {% if gallery %}
         {% include "gallery.njk" %}
     {% endif %}
