@@ -172,6 +172,15 @@ body.scrolled .scroll-hint {
     object-fit: cover;
 }
 
+@media (max-width: 700px) {
+    .page-hero__image {
+        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: 40% center;
+    }
+}
+
 .page-hero__title {
     max-width: 1400px;
     margin: 0 auto;
@@ -493,6 +502,68 @@ a:visited {
     max-width: 700px;
     margin: 80px auto;
 }
+
+/*================= NEW GENERIC TEXTPAGE ================= */
+
+.page-text {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: justify;
+}
+
+.page-text h1 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.page-text h2 {
+    max-width: 1000px;
+    margin: 60px auto 30px;
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.page-text h3 {
+    max-width: 1000px;
+    margin: 40px auto 20px;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.page-text h4 {
+    max-width: 1000px;
+    margin: 30px auto 15px;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.page-text p,
+.page-text ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.page-intro {
+    font-family: var(--font-display);
+    max-width: 480px;
+    margin: 0 auto 30px;
+
+    font-size: clamp(1.15rem, 1.2vw, 1.35rem);
+    line-height: 1.6;
+    text-align: center;
+}
+
 
 /* ================= CONTACT ================= */
 

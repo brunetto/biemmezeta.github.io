@@ -16,11 +16,107 @@ hero_image: /assets/og/ali_dune_turbante.jpg
     <section class="page-hero">
         <img src="{{ hero_image }}" alt="" class="page-hero__image"></section>
     {% endif %}
-    <section class="service">
+    <section class="page-text">
         <h1>Travel Photography for Humans</h1>
-        <div class="service section">
-            <h3>You live.</h3>
-            <h3>You travel.</h3>
-            <h3>I'll tell the story.</h3>
-        </div>
+        <p class="page-intro">
+            For travellers and tour operators.
+        </p>
+        <p>
+            You travel. You experience. I photograph the people, places and moments that make the journey yours. You don't have to
+            photograph your life while you're living it.
+        </p>
+        {# </section>
+                                            <section class="page-text"> #}
+        <h2>Why have a photographer on your trip?</h2>
+        <p>
+            When you travel, you are constantly faced with a small dilemma: do I actually experience this moment, or do I stop and
+            photograph it?
+        </p>
+        <p>
+            What if you didn't have to choose?
+        </p>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>What do I do?</h2>
+        <p>
+            I travel with you and document the journey as it happens — the places, but especially the people, interactions and small
+            moments that make that particular trip yours.
+        </p>
+        <p>
+            I work from inside the group, without turning the journey into a photoshoot. I observe, interact and photograph what
+            naturally happens along the way.
+        </p>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>What do you get?</h2>
+        <p>
+            Professional photographs that tell the story of your journey.
+        </p>
+        <p>
+            Images can be delivered day by day, so you can relive each day while you are still travelling.
+        </p>
+        <p>
+            Short-form motion content can also be produced where useful.
+        </p>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>For travellers</h2>
+        <p>
+            Be present. Enjoy the journey. Leave the documenting to me.
+        </p>
+        <p>
+            You come home with photographs that don't just show where you went, but remember what the journey felt like.
+        </p>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>For tour operators</h2>
+        <p>
+            Have you ever thought about turning the documentation of the trip into part of the experience you sell?
+        </p>
+        <p>
+            I can join one of your trips and turn it into both a better experience for your guests and a library of authentic
+            content for your brand.
+        </p>
+        <p>
+            The result is content that shows what your trips actually feel like — the people, the atmosphere, the encounters and the
+            moments that happen along the way.
+        </p>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>How can it work?</h2>
+        <p>
+            There are different ways to build photography into a trip:
+        </p>
+        <ul>
+            <li>photography included as part of the trip experience;</li>
+            <li>an optional service offered to participants;</li>
+            <li>a hybrid model combining guest photography and content creation for the operator.</li>
+        </ul>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>Who am I?</h2>
+        <p>
+            I'm Marco, a photographer based in Venice, Italy, working between reportage, people and travel.
+        </p>
+        <p>
+            I've worked as a photographer on Galactic Expedition trips, including two expeditions in Morocco, documenting the
+            experience from inside the group.
+        </p>
+        {# </section>
+                                    <section class="page-text"> #}
+        <h2>Let's talk about your next trip.</h2>
+        <p>
+            If you're a traveller, a tour operator or an agency and this sounds interesting, get in touch.
+        </p>
+        <p>
+            <a href="/contacts/">
+                <b>Let's talk.</b>
+            </a>
+        </p>
     </section>
+    <div class="section">
+        {% set gallery = pageGalleries["tpfh"]["gallery-1"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
