@@ -556,7 +556,7 @@ h4 {
     margin: 40px auto 20px;
     font-family: var(--font-display);
     font-size: clamp(1.15rem, 1.8vw, 1.5rem);
-    /* font-weight: 400; */
+    font-weight: 300;
     line-height: 1.2;
 }
 
@@ -565,7 +565,7 @@ h4 {
     margin: 30px auto 15px;
     font-family: var(--font-display);
     font-size: clamp(1rem, 1.3vw, 1.2rem);
-    /* font-weight: 400; */
+    font-weight: 200;
     line-height: 1.3;
 }
 

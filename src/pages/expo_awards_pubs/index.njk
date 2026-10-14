@@ -1,0 +1,78 @@
+---
+layout: layout.njk
+title: Expo, Awards & Publications
+tags: 
+permalink: /expo_awards_pubs/
+ogImage: /assets/og/vp.jpg
+ogTitle: Expo, Awards & Publications – Biemmezeta
+ogDescription: This page showcases the exhibitions, awards and publications that have featured my work, highlighting the recognition and appreciation of my photography within the industry and among audiences.
+---
+
+<section class="page-text">
+    <h1>Expo, Awards & Publications</h1>
+    <p>
+        This page showcases the exhibitions, awards and publications that have featured my work, highlighting the recognition
+        and appreciation of my photography within the industry and among audiences.
+    </p>
+    <h2>Awards</h2>
+    <h3>Milano Photo Awards</h3>
+    <h4>2026: 1st place in the category Portrait & Identity</h4>
+    <p>
+        <a href="https://www.instagram.com/p/DdpLya4Oj9i/" target="_blank">Link to the post.</a>
+    </p>
+    <p>'Part of “Deriva”, this photograph explores the unstable relationship between body, identity and social norms. The
+        curled posture, hands gathered around the knees and sideways gaze suggest a tension between self-protection and
+        exposure. Controlled light brings out the eyes and metallic details, while warm skin tones contrast with the cool
+        backdrop. The curves of the body guide the viewer towards the face, creating an intimate composition despite the
+        striking appearance. We awarded first place for its balance of visual impact, compositional precision and emotional
+        ambiguity. The photograph holds our attention beyond its surface, turning the portrait into an exploration of
+        vulnerability, control and the uncertain boundaries of identity.'</p>
+    <div class="section">
+        {% set gallery = pageGalleries["expo_awards_pubs"]["2026-milano_photo_awards"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
+    <h2>Publications</h2>
+    <h3>Hazl magazine, Issue #4, May 2026</h3>
+    <div class="section">
+        {% set gallery = pageGalleries["expo_awards_pubs"]["2026-hazl"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
+    <h2>Exhibitions</h2>
+    <h3>Biennale di Fotografia Erotica 2026</h3>
+    <p>
+        <a href="https://erotica.jimdosite.com/" target="_blank">Website.</a>
+    </p>
+    <p>
+        <a href="https://www.instagram.com/p/DaiiaYbiDKa/?img_index=2" target="_blank">Link to the post.</a>
+    </p>
+    <p>'Nella sua pratica fotografica Biemmezeta indaga principalmente la dimensione relazionale, costruendo immagini che
+        nascono dall'incontro, dalla fiducia e dall'ascolto reciproco. La sua ricerca esplora il corpo e l'esperienza umana,
+        suggerendo che erotismo e sessualità sono espressioni di libertà, vulnerabilità e connessione.'
+    </p>
+    <div class="section">
+        {% set gallery = pageGalleries["expo_awards_pubs"]["2026-biennale_fotografia_erotica"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
+    <h3>Mahakumbh 2025 Photo Exhibition</h3>
+    <h4>Yellow Baba</h4>
+    <div class="section">
+        {% set gallery = pageGalleries["expo_awards_pubs"]["2025-maha_khumb_mela"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
+    <h3>Venice Temporary Exhibition 2025</h3>
+    <h4>Yellow Baba</h4>
+    <div class="section">
+        {% set gallery = pageGalleries["expo_awards_pubs"]["2025-venice_temporary"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
+</section>
