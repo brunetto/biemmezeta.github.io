@@ -1,0 +1,33 @@
+---
+permalink: /events/
+layout: layout.njk
+tags: services
+ogImage: /assets/og/events.jpg
+ogTitle: Events Photography
+ogDescription: You live, you travel, I'll tell the story.
+
+title: Events
+hero_title: Events Photography
+hero_subtitle: You live, you travel, I'll tell the story.
+hero_image: /assets/og/events.jpg
+---
+
+{% if hero_image %}
+    <section class="page-hero">
+        <img src="{{ hero_image }}" alt="" class="page-hero__image"></section>
+    {% endif %}
+    <section class="page-text">
+        <h1>Events Photography</h1>
+        <p>
+            From conferences and award ceremonies to celebrations and public events, I document the people, encounters and moments
+            that give every occasion its character. Because an event is more than what happens on stage: it's the atmosphere, the
+            connections and everything that unfolds in between. A documentary approach, attentive to both the bigger picture and the
+            details that might otherwise go unnoticed.
+        </p>
+    </section>
+    <div class="section">
+        {% set gallery = pageGalleries["events"]["gallery-1"] %}
+        {% if gallery %}
+            {% include "gallery.njk" %}
+        {% endif %}
+    </div>
